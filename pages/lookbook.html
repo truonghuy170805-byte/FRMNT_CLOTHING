@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lookbook</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: #fff;
+        color: #111;
+        font-family: "Inter", Arial, sans-serif;
+      }
+
+      .lookbook-page {
+        width: 100%;
+        overflow-x: hidden;
+        background: #fff;
+      }
+
+      .lookbook-page .frgmnt-nav {
+        position: relative;
+        z-index: 100;
+      }
+
+      .lookbook-main {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        background: #fff;
+      }
+
+      .lookbook-main img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .lookbook-header {
+        padding: 46px 72px 34px;
+        background: #fff;
+      }
+
+      .lookbook-title {
+        margin: 0;
+        color: #000;
+        font-family: "Arial Black", Impact, sans-serif;
+        font-size: clamp(4.5rem, 7vw, 7.5rem);
+        font-weight: 900;
+        line-height: 0.9;
+        letter-spacing: -5px;
+        text-transform: uppercase;
+      }
+
+      .lookbook-intro {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        background: #7a0102;
+        padding: 36px 72px;
+      }
+
+      .lookbook-intro-copy {
+        padding-right: 54px;
+      }
+
+      .intro-line {
+        margin: 0;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 1.3;
+        letter-spacing: -0.7px;
+      }
+
+      .lookbook-intro-image {
+        width: 100%;
+      }
+
+      .lookbook-runway {
+        padding: 58px 72px;
+        background: #fff;
+      }
+
+      .lookbook-experience {
+        display: grid;
+        grid-template-columns: 62% 38%;
+        align-items: center;
+        background: #50030d;
+        padding: 38px 72px;
+      }
+
+      .experience-image {
+        padding-right: 48px;
+      }
+
+      .experience-copy {
+        padding-left: 10px;
+      }
+
+      .experience-copy p {
+        width: 100%;
+        max-width: 430px;
+        margin: 0;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 28px;
+        font-weight: 300;
+        line-height: 1.3;
+        letter-spacing: -0.6px;
+      }
+
+      .lookbook-collections {
+        display: grid;
+        grid-template-columns: 34% 66%;
+        gap: 42px;
+        align-items: start;
+        padding: 52px 72px 36px;
+        background: #fff;
+      }
+
+      .main-collection {
+        width: 100%;
+        text-align: center;
+      }
+
+      .main-collection-title {
+        margin: 16px 0 0;
+        color: #111;
+        font-family: "Inter", sans-serif;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .collection-panel {
+        width: 100%;
+        padding: 22px 24px 20px;
+        background: #280000;
+      }
+
+      .collection-card {
+        width: 100%;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      .collection-card:last-child {
+        margin-bottom: 0;
+      }
+
+      .collection-card-title {
+        margin: 10px 0 0;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 21px;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+
+      @media (max-width: 991.98px) {
+        .lookbook-header {
+          padding: 34px 32px 24px;
+        }
+
+        .lookbook-title {
+          font-size: 4.8rem;
+        }
+
+        .lookbook-intro {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 36px 32px;
+        }
+
+        .lookbook-intro-copy {
+          padding-right: 0;
+        }
+
+        .intro-line {
+          font-size: 25px;
+          line-height: 1.28;
+        }
+
+        .lookbook-runway {
+          padding: 40px 32px;
+        }
+
+        .lookbook-experience {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 36px 32px;
+        }
+
+        .experience-image {
+          padding-right: 0;
+        }
+
+        .experience-copy {
+          padding-left: 0;
+        }
+
+        .experience-copy p {
+          max-width: 100%;
+          font-size: 25px;
+        }
+
+        .lookbook-collections {
+          grid-template-columns: 1fr;
+          gap: 34px;
+          padding: 40px 32px;
+        }
+
+        .main-collection {
+          max-width: 520px;
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .lookbook-header {
+          padding: 26px 20px 18px;
+        }
+
+        .lookbook-title {
+          font-size: 3.3rem;
+          letter-spacing: -2px;
+        }
+
+        .lookbook-intro {
+          padding: 28px 20px;
+        }
+
+        .intro-line {
+          font-size: 18px;
+          line-height: 1.3;
+          letter-spacing: -0.2px;
+        }
+
+        .lookbook-runway {
+          padding: 28px 20px;
+        }
+
+        .lookbook-experience {
+          padding: 28px 20px;
+        }
+
+        .experience-copy p {
+          font-size: 18px;
+          line-height: 1.3;
+          letter-spacing: -0.2px;
+        }
+
+        .lookbook-collections {
+          padding: 30px 20px;
+        }
+
+        .collection-panel {
+          padding: 14px;
+        }
+
+        .main-collection-title,
+        .collection-card-title {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lookbook-page">
+
+      <div id="nav-root"></div>
+
+      <main class="lookbook-main">
+
+        <section class="lookbook-header">
+          <h1 class="lookbook-title">LOOKBOOK</h1>
+        </section>
+
+        <section class="lookbook-intro">
+          <div class="lookbook-intro-copy">
+            <p class="intro-line">
+              1. Redefining personal style through<br />
+              effortlessly sharp silhouettes.<br />
+              2. A seamless fusion of everyday<br />
+              functionality and contemporary edge.<br />
+              3. Celebrating the beauty of freedom in<br />
+              every movement you make.<br />
+              4. Curated neutral palettes designed to<br />
+              evoke understated luxury.
+            </p>
+          </div>
+
+          <div class="lookbook-intro-image">
+            <img
+              src="../assets/images/lookbook/1.jpg"
+              alt="FRGMNT mannequin collection"
+            />
+          </div>
+        </section>
+
+        <section class="lookbook-runway">
+          <img
+            src="../assets/images/lookbook/2.jpg"
+            alt="FRGMNT fashion runway"
+          />
+        </section>
+
+        <section class="lookbook-experience">
+          <div class="experience-image">
+            <img
+              src="../assets/images/lookbook/3.jpg"
+              alt="FRGMNT modern luxury collection"
+            />
+          </div>
+
+          <div class="experience-copy">
+            <p>
+              Experience modern luxury<br />
+              through every refined detail<br />
+              of our collection. Step into a<br />
+              world where timeless<br />
+              elegance meets absolute<br />
+              freedom.
+            </p>
+          </div>
+        </section>
+
+        <section class="lookbook-collections">
+          <div class="main-collection">
+            <img
+              src="../assets/images/lookbook/4.jpg"
+              alt="FRGMNT main collection"
+            />
+
+            <h3 class="main-collection-title">Main collection</h3>
+          </div>
+
+          <div class="collection-panel">
+            <article class="collection-card">
+              <img
+                src="../assets/images/lookbook/5.jpg"
+                alt="FRGMNT collection 1"
+              />
+
+              <h3 class="collection-card-title">Collection 1</h3>
+            </article>
+
+            <article class="collection-card">
+              <img
+                src="../assets/images/lookbook/6.jpg"
+                alt="FRGMNT collection 2"
+              />
+
+              <h3 class="collection-card-title">Collection 2</h3>
+            </article>
+
+            <article class="collection-card">
+              <img
+                src="../assets/images/lookbook/7.jpg"
+                alt="FRGMNT collection 3"
+              />
+
+              <h3 class="collection-card-title">Collection 3</h3>
+            </article>
+          </div>
+        </section>
+
+        <div class="next-row">
+          <a href="frgmnt.html" class="btn-next">Next &rarr;</a>
+        </div>
+      </main>
+
+      <div id="cta-root"></div>
+
+      <div id="footer-root"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

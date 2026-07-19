@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Story</title>
+
+    <meta
+      name="description"
+      content="Discover the story behind FRGMNT and our vision of individuality, identity and fashion."
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <style>
+      :root {
+        --story-red: #790101;
+        --story-pink: #cf8d8b;
+        --story-light-pink: #d29a97;
+        --story-white: #ffffff;
+        --story-font: "Poppins", Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+
+        background-color: var(--story-pink);
+        background-image: url("../assets/images/story/1.jpg");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+      }
+
+      .story-page {
+        position: relative;
+        width: 100%;
+        background: transparent;
+        font-family: var(--story-font);
+      }
+
+      .story-page * {
+        font-family: var(--story-font);
+      }
+
+      .story-hero {
+        width: 100%;
+        background: var(--story-pink);
+        overflow: hidden;
+      }
+
+      .story-title {
+        margin: 0;
+        padding: 13px 20px 12px;
+
+        color: var(--story-white);
+
+        font-family: "Arial Black", Arial, sans-serif;
+        font-size: 42px;
+        font-weight: normal;
+        line-height: 1;
+        text-align: center;
+      }
+
+      .story-top-gallery {
+        display: grid;
+        grid-template-columns: 24fr 52fr 24fr;
+        gap: 9px;
+
+        width: 100%;
+        height: 340px;
+        padding: 0;
+      }
+
+      .story-top-photo {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .story-top-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        transition: transform 0.45s ease;
+      }
+
+      .story-top-photo:hover img {
+        transform: scale(1.04);
+      }
+
+      .story-top-photo-left img {
+        object-position: center 15%;
+      }
+
+      .story-top-photo-center img {
+        object-position: center 25%;
+      }
+
+      .story-top-photo-right img {
+        object-position: center 15%;
+      }
+
+      .story-intro {
+        position: relative;
+        min-height: 150px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 28px 45px 35px;
+
+        background: rgba(207, 141, 139, 0.8);
+
+        overflow: hidden;
+      }
+
+      .story-intro::before {
+        content: "";
+
+        position: absolute;
+        left: -6%;
+        right: -6%;
+        bottom: -57px;
+
+        height: 120px;
+
+        background: rgba(255, 255, 255, 0.17);
+
+        clip-path: polygon(0 15%, 48% 100%, 100% 7%, 100% 100%, 0 100%);
+      }
+
+      .story-intro::after {
+        content: "";
+
+        position: absolute;
+        left: 28%;
+        right: -5%;
+        bottom: -78px;
+
+        height: 120px;
+
+        background: rgba(255, 255, 255, 0.1);
+
+        clip-path: polygon(0 0, 100% 48%, 100% 100%, 0 100%);
+      }
+
+      .story-intro-text {
+        position: relative;
+        z-index: 2;
+
+        max-width: 860px;
+        margin: 0 auto;
+
+        color: #ffffff;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .story-red-banner {
+        position: relative;
+
+        width: 100%;
+        height: 315px;
+
+        background: rgba(121, 1, 1, 0.62);
+
+        overflow: hidden;
+      }
+
+      .story-red-banner::before {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(
+          160deg,
+          transparent 0 46%,
+          rgba(255, 255, 255, 0.08) 47% 66%,
+          transparent 67%
+        );
+
+        pointer-events: none;
+      }
+
+      .story-red-banner::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background: radial-gradient(
+          circle at center,
+          transparent 30%,
+          rgba(75, 0, 0, 0.18) 100%
+        );
+
+        pointer-events: none;
+      }
+
+      .story-values {
+        position: relative;
+        min-height: 540px;
+
+        padding: 52px 80px 58px;
+
+        background: rgba(207, 141, 139, 0.76);
+
+        overflow: hidden;
+      }
+
+      .story-values-inner {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 900px;
+
+        margin: 0 auto;
+      }
+
+      .story-value-row {
+        display: grid;
+        grid-template-columns: 125px minmax(0, 1fr);
+        align-items: center;
+        column-gap: 28px;
+
+        width: 590px;
+        min-height: 135px;
+
+        margin-bottom: 15px;
+      }
+
+      .story-value-row:nth-child(2) {
+        margin-left: 135px;
+      }
+
+      .story-value-row:nth-child(3) {
+        margin-left: 275px;
+        margin-bottom: 0;
+      }
+
+      .story-value-image {
+        width: 125px;
+        height: 125px;
+
+        overflow: hidden;
+        background: var(--story-red);
+      }
+
+      .story-value-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .story-value-text {
+        margin: 0;
+
+        color: #ffffff;
+
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.45;
+      }
+
+      @media (max-width: 991.98px) {
+        .story-title {
+          font-size: 34px;
+        }
+
+        .story-top-gallery {
+          height: 260px;
+        }
+
+        .story-values {
+          padding: 42px 48px 50px;
+        }
+
+        .story-value-row {
+          width: 100%;
+          max-width: 540px;
+        }
+
+        .story-value-row:nth-child(2) {
+          margin-left: 80px;
+        }
+
+        .story-value-row:nth-child(3) {
+          margin-left: 160px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        body {
+          background-attachment: scroll;
+        }
+
+        .story-title {
+          font-size: 26px;
+          padding: 12px 16px 10px;
+        }
+
+        .story-top-gallery {
+          grid-template-columns: 1fr 1fr;
+          height: 200px;
+          gap: 5px;
+        }
+
+        .story-top-photo-right {
+          display: none;
+        }
+
+        .story-intro {
+          padding: 22px 20px 28px;
+        }
+
+        .story-intro-text {
+          font-size: 13px;
+        }
+
+        .story-red-banner {
+          height: 200px;
+        }
+
+        .story-values {
+          padding: 30px 20px 36px;
+          min-height: unset;
+        }
+
+        .story-value-row {
+          grid-template-columns: 90px minmax(0, 1fr);
+          column-gap: 18px;
+          width: 100%;
+          max-width: 100%;
+          min-height: unset;
+          margin-bottom: 20px;
+        }
+
+        .story-value-row:nth-child(2),
+        .story-value-row:nth-child(3) {
+          margin-left: 0;
+        }
+
+        .story-value-image {
+          width: 90px;
+          height: 90px;
+        }
+
+        .story-value-text {
+          font-size: 12px;
+        }
+      }
+
+      @media (max-width: 479.98px) {
+        .story-title {
+          font-size: 22px;
+        }
+
+        .story-top-gallery {
+          grid-template-columns: 1fr;
+          height: 180px;
+        }
+
+        .story-top-photo-left {
+          display: none;
+        }
+
+        .story-red-banner {
+          height: 150px;
+        }
+
+        .story-value-row {
+          grid-template-columns: 72px minmax(0, 1fr);
+          column-gap: 14px;
+        }
+
+        .story-value-image {
+          width: 72px;
+          height: 72px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
+  </head>
+
+  <body>
+
+    <div id="nav-root"></div>
+
+    <main class="story-page">
+
+      <section class="story-hero">
+        <h1 class="story-title">STORY</h1>
+
+        <div class="story-top-gallery">
+          <div class="story-top-photo story-top-photo-left">
+            <img
+              src="../assets/images/story/4.png"
+              alt="FRGMNT fashion portrait"
+            />
+          </div>
+
+          <div class="story-top-photo story-top-photo-center">
+            <img
+              src="../assets/images/story/6.jpg"
+              alt="FRGMNT fashion collection"
+            />
+          </div>
+
+          <div class="story-top-photo story-top-photo-right">
+            <img
+              src="../assets/images/story/5.jpg"
+              alt="FRGMNT fashion model"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="story-intro">
+        <p class="story-intro-text">
+          FRGMNT believes that no one is made from a perfect mold. We are a
+          collection of pieces from memories, culture, passions, and our own
+          journeys. That's why FRGMNT was born to turn those pieces into a
+          fashion language that's minimalist, strong, and full of personality.
+          Every outfit isn't just meant to be worn, it's a way to tell your own
+          story.
+        </p>
+      </section>
+
+      <section
+        class="story-red-banner"
+        aria-label="FRGMNT red fashion campaign"
+      ></section>
+
+      <section class="story-values">
+        <div class="story-values-inner">
+
+          <article class="story-value-row">
+            <div class="story-value-image">
+              <img
+                src="../assets/images/story/2.png"
+                alt="FRGMNT individuality"
+              />
+            </div>
+
+            <p class="story-value-text">
+              FRGMNT is built for those who embrace individuality. Through
+              contemporary design and bold expression, the brand transforms
+              personal identity into everyday style.
+            </p>
+          </article>
+
+          <article class="story-value-row">
+            <div class="story-value-image">
+              <img
+                src="../assets/images/story/3.png"
+                alt="FRGMNT fashion character"
+              />
+            </div>
+
+            <p class="story-value-text">
+              Born from the spirit of individuality, FRGMNT crafts fashion that
+              reflects character, confidence, and a unique perspective on the
+              world.
+            </p>
+          </article>
+
+          <article class="story-value-row">
+            <div class="story-value-image">
+              <img
+                src="../assets/images/story/7.jpg"
+                alt="Wear your identity"
+              />
+            </div>
+
+            <p class="story-value-text">Wear your identity. Wear FRGMNT.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <div class="next-row frgmnt-back">
+      <a href="about.html" class="btn-next"> &larr; Back </a>
+    </div>
+
+    <div id="cta-root"></div>
+
+    <div id="footer-root"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

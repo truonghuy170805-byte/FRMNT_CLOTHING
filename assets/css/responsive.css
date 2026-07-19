@@ -1,0 +1,758 @@
+
+@media (min-width: 1400px) {
+  .hero-brand {
+    font-size: 11rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .shop-sidebar {
+    padding-right: 12px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .hero-gallery {
+    max-width: 760px;
+  }
+
+  .gallery-3 {
+    height: 270px;
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .hero {
+    min-height: auto;
+    padding-top: 40px;
+  }
+
+  .hero-brand {
+    font-size: 5rem;
+    letter-spacing: -2px;
+  }
+
+  .hero-desc {
+    font-size: 13px;
+  }
+
+  .gallery-3 {
+    height: 230px;
+    gap: 6px;
+  }
+
+  .about-photo-grid {
+    height: 300px;
+  }
+
+  .story-block,
+  .story-block.reverse {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .story-block-img {
+    flex: none;
+    width: 100%;
+    height: 240px;
+  }
+
+  .story-block-img-sm {
+    flex-direction: row;
+    flex: none;
+    width: 100%;
+    height: 130px;
+  }
+
+  .philosophy-row,
+  .philosophy-row.reverse {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .philosophy-img {
+    flex: none;
+    width: 100%;
+    height: 260px;
+  }
+
+  .thumb-gallery {
+    gap: 8px;
+  }
+
+  .main-img-wrap {
+    height: 400px;
+  }
+
+  .cart-table thead th:nth-child(3),
+  .cart-table tbody td:nth-child(3) {
+    display: none;
+  }
+
+  .lb-red-band-inner {
+    flex-direction: column;
+  }
+
+  .lb-red-band-img {
+    height: 240px;
+  }
+
+  .col-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  section {
+    overflow-x: hidden;
+  }
+
+  .cta-section {
+    padding: 48px 0;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cta-input {
+    width: 100%;
+  }
+
+  .cta-btn {
+    width: 100%;
+    padding: 13px;
+  }
+
+  .frgmnt-footer {
+    padding: 36px 0 20px;
+  }
+
+  .footer-col-title {
+    margin-top: 8px;
+  }
+
+  .hero-top {
+    padding: 36px 16px 20px;
+  }
+
+  .hero-brand {
+    font-size: 4rem;
+    letter-spacing: -1px;
+  }
+
+  .hero-desc {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .hero-gallery {
+    padding: 0 12px;
+  }
+
+  .gallery-3 {
+    height: 200px;
+    gap: 5px;
+  }
+
+  .about-hero {
+    min-height: auto;
+  }
+
+  .about-hero-left {
+    padding: 32px 0 20px;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-photo-grid {
+    height: 260px;
+    margin-top: 0;
+  }
+
+  .the-plan-section {
+    padding: 48px 0 40px;
+  }
+
+  .story-header-photos {
+    grid-template-columns: 1fr 1fr;
+    height: 220px;
+  }
+
+  .story-intro {
+    padding: 40px 0;
+  }
+
+  .story-blocks {
+    padding: 48px 0;
+  }
+
+  .story-block {
+    margin-bottom: 48px;
+  }
+
+  .col-banner {
+    height: 200px;
+  }
+
+  .season-section {
+    padding: 48px 0;
+  }
+
+  .season-img {
+    height: 220px;
+    margin-top: 20px;
+  }
+
+  .lb-page-header {
+    padding: 32px 0 20px;
+  }
+
+  .lb-intro {
+    padding: 40px 0;
+  }
+
+  .lb-intro-img {
+    height: 260px;
+  }
+
+  .lb-full-photo {
+    height: 220px;
+  }
+
+  .lb-red-band-text {
+    padding: 32px 20px;
+  }
+
+  .col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-grid-item {
+    height: 220px !important;
+  }
+
+  .frgmnt-intro {
+    padding: 32px 0;
+  }
+
+  .philosophy-section {
+    padding: 40px 0;
+  }
+
+  .philosophy-img {
+    height: 220px;
+  }
+
+  .frgmnt-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fgallery-item {
+    height: 140px;
+  }
+
+  .shop-banner {
+    height: 160px;
+  }
+
+  .shop-banner-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .product-card-img {
+    height: 180px;
+  }
+
+  .product-actions {
+    opacity: 1;
+  }
+
+  .shop-sidebar {
+    margin-bottom: 24px;
+  }
+
+  .thumb-gallery {
+    flex-direction: column-reverse;
+  }
+
+  .thumb-col {
+    flex-direction: row;
+    flex: none;
+    gap: 6px;
+  }
+
+  .thumb-item {
+    width: 58px;
+    height: 70px;
+  }
+
+  .main-img-wrap {
+    height: 300px;
+    width: 100%;
+  }
+
+  .fabric-imgs {
+    grid-template-columns: 1fr;
+  }
+
+  .recommended h2 {
+    font-size: 1.4rem;
+  }
+
+  .cart-title-row h1 {
+    font-size: 1.5rem;
+  }
+
+  .cart-table {
+    font-size: 12px;
+  }
+
+  .cart-table thead th {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .cart-table td {
+    padding: 12px 8px;
+  }
+
+  .cart-product-img {
+    width: 54px;
+    height: 66px;
+  }
+
+  .cart-product-name {
+    font-size: 12px;
+  }
+
+  .cart-product-cell {
+    gap: 8px;
+  }
+
+  .cart-table thead th:nth-child(3),
+  .cart-table tbody td:nth-child(3) {
+    display: none;
+  }
+
+  .checkout-header {
+    padding: 24px 0;
+  }
+
+  .checkout-page {
+    padding: 32px 0;
+  }
+
+  .wishlist-title-row h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-hero {
+    min-height: auto;
+    padding: 40px 16px;
+  }
+
+  .login-card {
+    padding: 32px 24px;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 479.98px) {
+
+  .hero-brand {
+    font-size: 3.2rem;
+  }
+
+  .gallery-3 {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .gallery-item {
+    height: 180px;
+  }
+
+  .story-header-photos {
+    grid-template-columns: 1fr 1fr;
+    height: 180px;
+  }
+
+  .product-card-img {
+    height: 160px;
+  }
+
+  .product-name {
+    font-size: 13px;
+  }
+
+  .wl-img {
+    height: 180px;
+  }
+
+  .social-login {
+    flex-direction: column;
+  }
+
+  .checkout-summary {
+    padding: 20px 16px;
+  }
+
+  .footer-list li {
+    font-size: 11px;
+  }
+}
+
+@media print {
+  .frgmnt-nav,
+  .cta-section,
+  .search-overlay,
+  #frgmnt-toast {
+    display: none !important;
+  }
+}
+
+.about-page .plan-card-desc {
+  width: 100%;
+  max-width: 580px;
+}
+
+@media (max-width: 1199.98px) {
+  .about-page .about-content {
+    padding: 72px 44px 70px;
+  }
+
+  .about-page .about-hero {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 28px;
+  }
+
+  .about-page .about-desc {
+    width: 100%;
+    max-width: 760px;
+    font-size: 21px;
+  }
+
+  .about-page .about-images {
+    grid-template-columns: minmax(220px, 300px) minmax(180px, 240px);
+    gap: 22px;
+  }
+
+  .about-page .about-img-main {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 666 / 1028;
+  }
+
+  .about-page .about-img-top,
+  .about-page .about-img-bottom {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-page .about-img-top {
+    aspect-ratio: 614 / 890;
+  }
+
+  .about-page .about-img-bottom {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-page .plan-grid {
+    gap: 28px;
+  }
+
+  .about-page .plan-card-content {
+    padding: 0 34px;
+  }
+
+  .about-page .plan-arrow-btn {
+    top: 32px;
+    left: 34px;
+  }
+
+  .about-page .plan-card-title {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+  }
+
+  .about-page .plan-card-desc {
+    width: 100%;
+    max-width: 440px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .about-page .about-content {
+    padding: 56px 28px 68px;
+  }
+
+  .about-page .about-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 32px;
+    margin-bottom: 44px;
+  }
+
+  .about-page .about-text {
+    padding-top: 20px;
+  }
+
+  .about-page .about-title {
+    font-size: 4rem;
+    letter-spacing: 0;
+  }
+
+  .about-page .about-desc {
+    width: 100%;
+    max-width: 100%;
+    font-size: 17px;
+    line-height: 1.32;
+    letter-spacing: 0;
+  }
+
+  .about-page .about-desc br,
+  .about-page .plan-card-desc br {
+    display: none;
+  }
+
+  .about-page .about-images {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: initial;
+    padding-right: 0;
+    gap: 18px;
+  }
+
+  .about-page .about-img-main {
+    width: 100%;
+    grid-column: span 2;
+    height: auto;
+    aspect-ratio: 666 / 1028;
+    margin-top: 0;
+  }
+
+  .about-page .about-side-stack {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-page .about-img-top,
+  .about-page .about-img-bottom {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-page .about-img-top {
+    aspect-ratio: 614 / 890;
+  }
+
+  .about-page .about-img-bottom {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-page .plan-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-page .plan-card {
+    min-height: 380px;
+  }
+
+  .about-page .plan-card-img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-page .plan-card-content {
+    padding: 96px 38px 38px;
+    justify-content: flex-end;
+  }
+
+  .about-page .plan-card-title {
+    max-width: 100%;
+  }
+
+  .about-page .plan-card-desc {
+    width: 100%;
+    max-width: 560px;
+    line-height: 1.28;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-page .about-content {
+    padding: 38px 18px 52px;
+  }
+
+  .about-page .about-hero {
+    gap: 28px;
+    margin-bottom: 38px;
+  }
+
+  .about-page .about-title {
+    font-size: clamp(3rem, 15vw, 3.8rem);
+    margin-bottom: 18px;
+  }
+
+  .about-page .about-desc {
+    font-size: 15px;
+    line-height: 1.38;
+    margin-bottom: 24px;
+  }
+
+  .about-page .btn-about {
+    width: 132px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .about-page .about-images {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-page .about-img-main,
+  .about-page .about-img-top,
+  .about-page .about-img-bottom {
+    grid-column: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .about-page .about-img-main {
+    aspect-ratio: 666 / 1028;
+  }
+
+  .about-page .about-img-top {
+    aspect-ratio: 614 / 890;
+  }
+
+  .about-page .about-img-bottom {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-page .about-side-stack {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-page .the-plan-section {
+    padding-bottom: 44px;
+  }
+
+  .about-page .the-plan-title {
+    font-size: clamp(2.5rem, 12vw, 3.35rem);
+    margin-bottom: 28px;
+    letter-spacing: 0;
+  }
+
+  .about-page .plan-grid {
+    gap: 20px;
+  }
+
+  .about-page .plan-card {
+    min-height: 360px;
+    aspect-ratio: 1 / 1.04;
+  }
+
+  .about-page .plan-card-content {
+    padding: 82px 24px 28px;
+  }
+
+  .about-page .plan-arrow-btn {
+    top: 24px;
+    left: 24px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .about-page .plan-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .about-page .plan-card-desc {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+
+  .about-page .about-white-gap {
+    height: 34px;
+  }
+
+  .about-page .cta-form {
+    gap: 0;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .about-page .about-content {
+    padding: 32px 16px 44px;
+  }
+
+  .about-page .about-title {
+    font-size: clamp(2.75rem, 14vw, 3.2rem);
+  }
+
+  .about-page .plan-card {
+    min-height: 340px;
+  }
+
+  .about-page .plan-card-content {
+    padding: 76px 20px 24px;
+  }
+
+  .about-page .plan-arrow-btn {
+    left: 20px;
+  }
+
+  .about-page .plan-card-title {
+    font-size: 1.35rem;
+  }
+
+  .about-page .plan-card-desc {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .nav-links > .nav-dropdown {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .nav-links > a,
+  .nav-links > .nav-dropdown > .nav-dropdown-toggle {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 !important;
+    padding: 12px 20px !important;
+
+    text-align: left !important;
+  }
+  .nav-links > .nav-dropdown > .nav-dropdown-toggle .nav-chevron {
+    margin-left: 7px;
+  }
+}

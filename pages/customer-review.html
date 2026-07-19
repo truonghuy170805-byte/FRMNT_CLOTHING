@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customers Reviews - FRGMNT</title>
+
+    <meta name="description" content="Customer reviews for FORM TANK by FRGMNT.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            background: #ffffff;
+            color: #111111;
+
+            font-family: "Poppins", sans-serif;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: "Poppins", sans-serif;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .customer-review-page {
+            width: 100%;
+            min-height: 100vh;
+
+            background: #ffffff;
+        }
+
+        #nav-root,
+        #nav-root>* {
+            width: 100%;
+
+            margin-bottom: 0 !important;
+
+            border: 0 !important;
+            border-bottom: 0 !important;
+
+            box-shadow: none !important;
+        }
+
+        .customer-review-section {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            background: #805757;
+        }
+
+        .customer-review-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center top;
+
+            pointer-events: none;
+        }
+
+        .customer-review-section::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            background:
+                linear-gradient(to bottom,
+                    rgba(64, 32, 32, 0.08),
+                    rgba(95, 34, 34, 0.13));
+
+            pointer-events: none;
+        }
+
+        .customer-review-overlay {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+
+            padding:
+                42px 42px 54px;
+        }
+
+        .customer-review-container {
+            width: 100%;
+            max-width: 980px;
+
+            margin: 0 auto;
+        }
+
+        .customer-review-header {
+            position: relative;
+
+            min-height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 38px;
+        }
+
+        .customer-review-back {
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            width: 40px;
+            height: 40px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: #a40000;
+            color: #ffffff;
+
+            font-size: 14px;
+
+            transform: translateY(-50%);
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .customer-review-back:hover {
+            background: #7c0000;
+
+            transform:
+                translateY(-50%) translateX(-2px);
+        }
+
+        .customer-review-title {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: 27px;
+            font-weight: 600;
+            line-height: 1.2;
+
+            text-align: center;
+
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 6px;
+        }
+
+        .customer-review-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap:
+                34px 44px;
+        }
+
+        .customer-review-card {
+            min-width: 0;
+
+            aspect-ratio: 1.7 / 1;
+
+            display: grid;
+
+            grid-template-columns:
+                76px minmax(0, 1fr);
+
+            align-content: start;
+
+            column-gap: 20px;
+
+            padding:
+                22px 24px;
+
+            border: 0;
+            border-radius: 34px;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(133, 24, 24, 0.64),
+                    rgba(114, 25, 25, 0.55));
+
+            color: #ffffff;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.06);
+
+            transition:
+                transform 0.22s ease,
+                background-color 0.22s ease;
+        }
+
+        .customer-review-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .customer-review-avatar {
+            width: 72px;
+            height: 72px;
+
+            overflow: hidden;
+
+            border:
+                2px solid rgba(255, 255, 255, 0.92);
+
+            border-radius: 50%;
+
+            background: #dddddd;
+        }
+
+        .customer-review-avatar img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .customer-review-content {
+            min-width: 0;
+        }
+
+        .customer-review-name {
+            margin:
+                0 0 2px;
+
+            color: #ffffff;
+
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .customer-review-role {
+            margin:
+                0 0 1px;
+
+            color:
+                rgba(255, 255, 255, 0.96);
+
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .customer-review-rating {
+            margin:
+                0 0 16px;
+
+            color:
+                rgba(255, 255, 255, 0.96);
+
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .customer-review-text {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: 10px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.55;
+        }
+
+        .customer-review-navigation {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                22px 20px 24px;
+
+            background: #ffffff;
+        }
+
+        .customer-review-next {
+            min-width: 110px;
+            height: 42px;
+
+            padding:
+                0 18px;
+
+            border: 0;
+            border-radius: 4px;
+
+            background: #920000;
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .customer-review-next:hover {
+            background: #780000;
+
+            transform: translateY(-1px);
+        }
+
+        .customer-review-next i {
+            font-size: 9px;
+        }
+
+        #cta-root,
+        #footer-root {
+            width: 100%;
+        }
+
+        @media (max-width: 1199.98px) {
+            .customer-review-overlay {
+                padding:
+                    40px 34px 50px;
+            }
+
+            .customer-review-container {
+                max-width: 900px;
+            }
+
+            .customer-review-grid {
+                gap:
+                    30px 32px;
+            }
+
+            .customer-review-card {
+                grid-template-columns:
+                    70px minmax(0, 1fr);
+
+                column-gap: 18px;
+
+                padding:
+                    21px 21px;
+            }
+
+            .customer-review-avatar {
+                width: 66px;
+                height: 66px;
+            }
+
+            .customer-review-name {
+                font-size: 14px;
+            }
+
+            .customer-review-text {
+                font-size: 9.5px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .customer-review-overlay {
+                padding:
+                    38px 28px 46px;
+            }
+
+            .customer-review-container {
+                max-width: 690px;
+            }
+
+            .customer-review-title {
+                font-size: 24px;
+            }
+
+            .customer-review-grid {
+                grid-template-columns: 1fr;
+
+                gap: 26px;
+            }
+
+            .customer-review-card {
+                aspect-ratio: auto;
+                min-height: 230px;
+            }
+
+            .customer-review-background {
+                object-position: center top;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .customer-review-overlay {
+                padding:
+                    31px 17px 40px;
+            }
+
+            .customer-review-header {
+                margin-bottom: 30px;
+            }
+
+            .customer-review-title {
+                width:
+                    calc(100% - 92px);
+
+                font-size: 20px;
+            }
+
+            .customer-review-back {
+                width: 37px;
+                height: 37px;
+
+                font-size: 13px;
+            }
+
+            .customer-review-card {
+                aspect-ratio: auto;
+                min-height: 190px;
+
+                grid-template-columns:
+                    62px minmax(0, 1fr);
+
+                column-gap: 16px;
+
+                padding:
+                    20px 18px;
+
+                border-radius: 27px;
+            }
+
+            .customer-review-avatar {
+                width: 58px;
+                height: 58px;
+            }
+
+            .customer-review-name {
+                font-size: 13px;
+            }
+
+            .customer-review-role,
+            .customer-review-rating {
+                font-size: 9px;
+            }
+
+            .customer-review-rating {
+                margin-bottom: 11px;
+            }
+
+            .customer-review-text {
+                font-size: 9.5px;
+            }
+        }
+
+        @media (max-width: 479.98px) {
+            .customer-review-title {
+                font-size: 18px;
+            }
+
+            .customer-review-card {
+                grid-template-columns: 1fr;
+
+                row-gap: 12px;
+
+                min-height: 215px;
+
+                text-align: center;
+            }
+
+            .customer-review-avatar {
+                margin: 0 auto;
+            }
+
+            .customer-review-grid {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="customer-review-page">
+
+        <div id="nav-root"></div>
+
+        <main>
+
+            <section class="customer-review-section" aria-labelledby="customerReviewTitle">
+
+                <img class="customer-review-background" src="../assets/images/customer-review/background.png" alt=""
+                    aria-hidden="true">
+
+                <div class="customer-review-overlay">
+
+                    <div class="customer-review-container">
+
+                        <div class="customer-review-header">
+
+                            <button id="customerReviewBack" type="button" class="customer-review-back"
+                                aria-label="Back to product">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+
+                            <h1 id="customerReviewTitle" class="customer-review-title">
+                                Customers reviews
+                            </h1>
+
+                        </div>
+
+                        <div class="customer-review-grid">
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/1.png" alt="Phan Duy Anh">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Phan Duy Anh
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Very beautiful, would buy again.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/2.png" alt="Đỗ Khắc Tuấn Kiệt">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Đỗ Khắc Tuấn Kiệt
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Best clothes I've ever buy.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/3.png" alt="Hồ Diễm Quỳnh">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Hồ Diễm Quỳnh
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “I bought the shirt for my cousin,
+                                        she love it.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/4.png" alt="Trương Đan Huy">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Trương Đan Huy
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Tuyệt vời, quá đẹp.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/5.png" alt="Nguyễn Thùy Thùy Linh">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Nguyễn Thùy Thùy Linh
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt
+                                        ut labore et dolore magna aliqua.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/6.png" alt="Nguyen Van F">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Nguyen Van F
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Very cool clothes, it made me
+                                        look fashionable.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/7.png" alt="Nguyễn Mai Thi">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Nguyễn Mai Thi
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Students
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Love the Design!”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                            <article class="customer-review-card">
+
+                                <div class="customer-review-avatar">
+
+                                    <img src="../assets/images/customer-review/8.png" alt="Ngô Giang Thanh">
+
+                                </div>
+
+                                <div class="customer-review-content">
+
+                                    <h2 class="customer-review-name">
+                                        Ngô Giang Thanh
+                                    </h2>
+
+                                    <p class="customer-review-role">
+                                        Teacher
+                                    </p>
+
+                                    <p class="customer-review-rating">
+                                        5/5 Stars
+                                    </p>
+
+                                    <p class="customer-review-text">
+                                        “Quality clothes, premium experience.”
+                                    </p>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div class="customer-review-navigation">
+
+                <button id="customerReviewNext" type="button" class="customer-review-next">
+                    Next
+
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </main>
+
+        <div id="cta-root"></div>
+        <div id="footer-root"></div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromPage = urlParams.get('from') || 'product.html?id=p01';
+
+        const customerReviewBack =
+            document.getElementById(
+                "customerReviewBack"
+            );
+
+        const customerReviewNext =
+            document.getElementById(
+                "customerReviewNext"
+            );
+
+        customerReviewBack.addEventListener(
+            "click",
+            () => {
+                window.location.href = fromPage;
+            }
+        );
+
+        customerReviewNext.addEventListener(
+            "click",
+            () => {
+                window.location.href = fromPage;
+            }
+        );
+    </script>
+
+</body>
+
+</html>

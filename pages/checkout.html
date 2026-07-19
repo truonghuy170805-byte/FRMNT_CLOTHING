@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Out</title>
+  <meta name="description" content="Complete your order â€” FRGMNT checkout.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<style>
+  :root {
+    --checkout-red: #8B0000;
+    --checkout-font: "Poppins", Arial, sans-serif;
+  }
+
+  .checkout-header {
+    height: 170px;
+    background: var(--checkout-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkout-header h1 {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 60px;
+    color: #fff;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .checkout-page,
+  .checkout-page * {
+    font-family: var(--checkout-font);
+  }
+
+  .checkout-page {
+    padding: 40px 0 70px;
+  }
+
+  .checkout-layout {
+    align-items: flex-start;
+  }
+
+  .billing-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--checkout-red);
+    border: none;
+    margin-bottom: 26px;
+  }
+
+  .form-group-custom {
+    margin-bottom: 20px;
+  }
+
+  .form-label-custom {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .form-label-custom .req {
+    color: var(--checkout-red);
+    font-weight: 600;
+  }
+
+  .form-input,
+  .form-select-custom {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #c66;
+    border-radius: 8px;
+    font-size: 11px;
+    color: #111;
+    background: #fff;
+  }
+
+  .form-input:focus,
+  .form-select-custom:focus {
+    outline: none;
+    border-color: var(--checkout-red);
+  }
+
+  .checkout-summary {
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-top: 76px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .checkout-summary-title {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .checkout-summary-title,
+  .checkout-summary-title span {
+    color: var(--checkout-red);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .sum-product-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+    column-gap: 22px;
+    padding: 6px 0 14px;
+    border: none;
+  }
+
+  .product-name,
+  .product-qty,
+  .product-price {
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .product-name {
+    grid-column: 1;
+    color: #9b9b9b;
+    text-transform: capitalize;
+  }
+
+  .product-qty {
+    grid-column: 2;
+    color: #111;
+    text-align: center;
+  }
+
+  .product-price {
+    grid-column: 4;
+    color: #111;
+    text-align: right;
+  }
+
+  .sum-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 4px 0;
+    font-size: 11px;
+    color: #111;
+    font-weight: 400;
+  }
+
+  .sum-row span {
+    font-size: 11px;
+    color: #111;
+    font-weight: 400;
+  }
+
+  .sum-row.total {
+    padding: 4px 0 22px;
+    margin: 2px 0 14px;
+    border-bottom: 1px solid #d6a0a0;
+  }
+
+  .sum-row.total,
+  .sum-row.total span {
+    font-weight: 400;
+    color: #111;
+  }
+
+  .sum-row.total .price {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--checkout-red);
+  }
+
+  .payment-section {
+    margin-top: 0;
+  }
+
+  .payment-option {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+
+  .payment-option.selected {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .payment-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    color: #111;
+    cursor: pointer;
+  }
+
+  .payment-option input[type="radio"] {
+    width: 9px;
+    height: 9px;
+    transform: scale(.75);
+    accent-color: var(--checkout-red);
+    cursor: pointer;
+  }
+
+  .payment-desc {
+    padding-left: 0;
+    margin: 8px 0 16px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #b0b0b0;
+  }
+
+  .privacy-note {
+    margin-top: 14px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #111;
+  }
+
+  .privacy-note a {
+    color: var(--checkout-red);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .btn-place-order {
+    width: 205px;
+    height: 41px;
+    display: block;
+    margin: 26px auto 0;
+    background: #fff;
+    border: 1px solid var(--checkout-red);
+    border-radius: 8px;
+    color: var(--checkout-red);
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .btn-place-order:hover {
+    background: var(--checkout-red);
+    color: #fff;
+  }
+
+  .success-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    background: rgba(0, 0, 0, 0.28);
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--checkout-font);
+  }
+
+  .success-modal.show {
+    display: flex;
+  }
+
+  .success-modal-box {
+    width: 390px;
+    min-height: 245px;
+
+    background: #fff;
+
+    border-radius: 2px;
+
+    padding: 34px 42px 30px;
+
+    text-align: center;
+
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+  }
+
+  .success-icon {
+    width: 74px;
+    height: 74px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    background: var(--checkout-red);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    font-size: 34px;
+  }
+
+  .success-modal-box h3 {
+    margin: 0 0 8px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111;
+  }
+
+  .success-modal-box p {
+    width: 270px;
+
+    margin: 0 auto 28px;
+
+    font-size: 9px;
+    line-height: 1.5;
+
+    color: #9b9b9b;
+  }
+
+  .success-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .btn-view-order,
+  .btn-cont-shopping {
+    width: 120px;
+    height: 28px;
+
+    background: #fff;
+
+    border: 1px solid #b45a5a;
+    border-radius: 4px;
+
+    color: #111;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    cursor: pointer;
+  }
+
+  .btn-view-order:hover,
+  .btn-cont-shopping:hover {
+    background: var(--checkout-red);
+    color: #fff;
+  }
+
+  @media (max-width: 991px) {
+    .checkout-header {
+      height: 120px;
+    }
+
+    .checkout-header h1 {
+      font-size: 42px;
+    }
+
+    .checkout-summary {
+      margin-top: 40px;
+    }
+  }
+
+  .qr-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99998;
+    background: rgba(10, 5, 5, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--checkout-font);
+  }
+
+  .qr-modal.show {
+    display: flex;
+    animation: qrFadeIn 0.22s ease;
+  }
+
+  @keyframes qrFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .qr-box {
+    width: 390px;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+      0 32px 80px rgba(0,0,0,0.30),
+      0 0 0 1px rgba(255,255,255,0.08);
+    animation: qrSlideUp 0.30s cubic-bezier(0.34,1.3,0.64,1);
+  }
+
+  @keyframes qrSlideUp {
+    from { transform: translateY(40px) scale(0.96); opacity: 0; }
+    to   { transform: translateY(0)    scale(1);    opacity: 1; }
+  }
+
+  .qr-header {
+    background: linear-gradient(135deg, #b50000 0%, #8a0000 100%);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .qr-header::before {
+    content: '';
+    position: absolute;
+    top: -28px; right: -28px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    pointer-events: none;
+  }
+
+  .qr-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .qr-bank-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 900;
+    color: #b50000;
+    letter-spacing: -0.8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .qr-bank-name {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .qr-bank-name span {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 1px;
+  }
+
+  .qr-header-right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qr-vietqr-tag {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 20px;
+    padding: 3px 9px;
+    color: #fff;
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .qr-close {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+  }
+
+  .qr-close:hover {
+    background: rgba(255,255,255,0.30);
+    transform: rotate(90deg);
+  }
+
+  .qr-body {
+    padding: 22px 28px 8px;
+    text-align: center;
+  }
+
+  .qr-image-wrap {
+    width: 170px;
+    height: 170px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 3px solid #f0f0f0;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .qr-image-wrap img {
+    width: 156px;
+    height: 156px;
+    display: block;
+  }
+
+  .qr-scan-hint {
+    font-size: 9px;
+    color: #bbb;
+    letter-spacing: 0.2px;
+    margin-bottom: 16px;
+  }
+
+  .qr-amount-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 3px;
+  }
+
+  .qr-amount {
+    font-size: 28px;
+    font-weight: 800;
+    color: #8a0000;
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .qr-info-block {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+
+  .qr-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .qr-info-row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .qr-info-key {
+    font-size: 9px;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    flex-shrink: 0;
+  }
+
+  .qr-info-val {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #111;
+    text-align: right;
+  }
+
+  .qr-info-val.mono {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.4px;
+  }
+
+  .qr-timer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+    border: 1px solid #ffd0d0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin-bottom: 20px;
+  }
+
+  .qr-timer-icon {
+    font-size: 12px;
+    color: #c00;
+  }
+
+  .qr-timer-text {
+    font-size: 10px;
+    color: #666;
+  }
+
+  .qr-timer-text strong {
+    font-size: 13px;
+    font-weight: 700;
+    color: #b50000;
+    font-family: 'Courier New', monospace;
+    margin-left: 4px;
+  }
+
+  .btn-qr-confirm {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #8a0000;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    transition: background 0.18s;
+    margin-bottom: 10px;
+  }
+
+  .btn-qr-confirm:hover {
+    background: #6a0000;
+  }
+
+  .qr-footer-note {
+    padding: 10px 28px 18px;
+    text-align: center;
+    font-size: 9px;
+    color: #ccc;
+    border-top: 1px solid #f4f4f4;
+    line-height: 1.5;
+  }
+</style>
+
+<body>
+
+  <div class="success-modal" id="successModal">
+    <div class="success-modal-box">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3>Thank you for ordering!</h3>
+      <p id="successOrderMessage">
+        We've received your order. It will ship in 5-7 business days.
+      </p>
+      <div class="success-actions">
+        <button type="button" class="btn-view-order" onclick="location.href='view-order.html'">
+          View order
+        </button>
+        <button type="button" class="btn-cont-shopping" onclick="location.href='shop.html'">
+          Continue shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-box">
+
+      <div class="qr-header">
+        <div class="qr-header-left">
+          <div class="qr-bank-logo">VCB</div>
+          <div class="qr-bank-name">
+            Vietcombank
+            <span>TMCP Joint Stock Commercial Bank for Foreign Trade</span>
+          </div>
+        </div>
+        <div class="qr-header-right">
+          <span class="qr-vietqr-tag">VietQR</span>
+          <button type="button" class="qr-close" id="qrClose" aria-label="Close QR">
+            <i class="fas fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="qr-body">
+
+        <div class="qr-image-wrap">
+          <img id="qrImage" src="" alt="Payment QR code">
+        </div>
+
+        <p class="qr-scan-hint">Scan to pay</p>
+
+        <p class="qr-amount-label">Total Payment</p>
+        <div class="qr-amount" id="qrAmount">$0</div>
+
+        <div class="qr-info-block">
+          <div class="qr-info-row">
+            <span class="qr-info-key">Account Name</span>
+            <span class="qr-info-val">FRGMNT CLOTHING CO.</span>
+          </div>
+          <div class="qr-info-row">
+            <span class="qr-info-key">Account No.</span>
+            <span class="qr-info-val mono">1234 5678 9012</span>
+          </div>
+          <div class="qr-info-row">
+            <span class="qr-info-key">Reference</span>
+            <span class="qr-info-val mono" id="qrRef">FRGMNT-B6CT3</span>
+          </div>
+        </div>
+
+        <div class="qr-timer-wrap">
+          <i class="fas fa-clock qr-timer-icon"></i>
+          <div class="qr-timer-text">
+            Code expires in: <strong id="qrCountdown">10:00</strong>
+          </div>
+        </div>
+
+        <button type="button" class="btn-qr-confirm" id="qrConfirmBtn">
+          <i class="fas fa-check-circle"></i>
+          Transferred — Confirm Order
+        </button>
+
+      </div>
+
+      <div class="qr-footer-note">
+        After transferring, press confirm to complete your order.
+      </div>
+
+    </div>
+  </div>
+
+  <div id="nav-root"></div>
+
+  <div class="checkout-header">
+    <h1>CHECK OUT</h1>
+  </div>
+
+  <section class="checkout-page p-5">
+    <div class="container" style="max-width:1120px;">
+
+      <form id="checkoutForm" onsubmit="placeOrder(event)">
+
+        <div class="row checkout-layout">
+
+          <div class="col-lg-6">
+            <h2 class="billing-title">Billing details</h2>
+
+            <div class="row gx-3 gy-4">
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutFirstName">First Name <span class="req">*</span></label>
+                  <input id="checkoutFirstName" name="firstName" class="form-input" type="text" autocomplete="given-name" required>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutLastName">Last Name <span class="req">*</span></label>
+                  <input id="checkoutLastName" name="lastName" class="form-input" type="text" autocomplete="family-name" required>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutPhone">Phone <span class="req">*</span></label>
+                  <input id="checkoutPhone" name="phone" class="form-input" type="tel" autocomplete="tel" required>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutEmail">Email address <span class="req">*</span></label>
+                  <input id="checkoutEmail" name="email" class="form-input" type="email" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutStreet">Street address <span class="req">*</span></label>
+                  <input id="checkoutStreet" name="street" class="form-input" type="text" autocomplete="street-address" required>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutDistrict">District <span class="req">*</span></label>
+                  <select id="checkoutDistrict" name="district" class="form-select-custom" required>
+                    <option value="">Select district</option>
+                    <option>Hoan Kiem</option>
+                    <option>Ba Dinh</option>
+                    <option>Dong Da</option>
+                    <option>Tay Ho</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutCity">Town / City <span class="req">*</span></label>
+                  <select id="checkoutCity" name="city" class="form-select-custom" autocomplete="address-level2" required>
+                    <option value="">Select city</option>
+                    <option>Ha Noi</option>
+                    <option>Ho Chi Minh</option>
+                    <option>Da Nang</option>
+                    <option>Can Tho</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutZip">ZIP code</label>
+                  <input id="checkoutZip" name="zip" class="form-input" type="text" autocomplete="postal-code">
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-group-custom">
+                  <label class="form-label-custom" for="checkoutCountry">Country / Region <span class="req">*</span></label>
+                  <select id="checkoutCountry" name="country" class="form-select-custom" autocomplete="country-name" required>
+                    <option value="">Select country</option>
+                    <option selected>Vietnam</option>
+                    <option>United States</option>
+                    <option>Japan</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 offset-lg-1">
+            <div class="checkout-summary">
+
+              <div class="checkout-summary-title">
+                <span>Product</span>
+                <span>Subtotal</span>
+              </div>
+
+              <div id="summaryItems"></div>
+
+              <div id="summaryTotals"></div>
+
+              <div class="payment-section">
+
+                <div class="payment-option selected" id="payOptBank" onclick="selectPayment(this)">
+                  <label>
+                    <input type="radio" name="payment" value="bank" checked>
+                    Direct Bank Transfer (QR)
+                  </label>
+                  <p class="payment-desc">
+                    Pay via VietQR — fast &amp; easy.
+                  </p>
+                </div>
+
+                <div class="payment-option" id="payOptDirect" onclick="selectPayment(this)">
+                  <label>
+                    <input type="radio" name="payment" value="direct">
+                    Direct Bank Transfer
+                  </label>
+                </div>
+
+                <div class="payment-option" id="payOptCod" onclick="selectPayment(this)">
+                  <label>
+                    <input type="radio" name="payment" value="cod">
+                    Cash On Delivery
+                  </label>
+                </div>
+
+                <p class="privacy-note">
+                  Your personal data will be used to support your experience throughout this website, to manage access
+                  to your account, and for other purposes described in our <a href="#">privacy policy</a>.
+                </p>
+
+                <button type="submit" class="btn-place-order">
+                  Place order
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <div id="cta-root"></div>
+
+  <div id="footer-root"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    function selectPayment(el) {
+      document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      el.querySelector('input[type="radio"]').checked = true;
+    }
+
+    function toTitleCase(str) {
+      return str
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    function renderSummary() {
+      const subtotal = getCartTotal();
+      const shipping = 10;
+      const total = subtotal + shipping;
+
+      document.getElementById('summaryItems').innerHTML = cart.map(item => {
+
+        const q = Number(item.qty || item.quantity) || 1;
+        const p = Number(item.price) || 0;
+        return `
+          <div class="sum-product-row">
+            <span class="product-name">${item.name}</span>
+            <span class="product-qty">x ${q}</span>
+            <span class="product-price">$${p * q}</span>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('summaryTotals').innerHTML = `
+    <div class="sum-row">
+      <span>Shipping:</span>
+      <span>$${shipping}</span>
+    </div>
+
+    <div class="sum-row total">
+      <span>Total:</span>
+      <span class="price">$${total}</span>
+    </div>
+  `;
+    }
+
+    function getCheckoutValue(id) {
+      const field = document.getElementById(id);
+      return field ? field.value.trim() : '';
+    }
+
+    function getEstimatedDelivery(referenceDate = new Date()) {
+      const start = new Date(referenceDate);
+      const end = new Date(referenceDate);
+
+      start.setDate(start.getDate() + 5);
+      end.setDate(end.getDate() + 7);
+
+      const startMonth = start.toLocaleDateString('en-US', { month: 'long' });
+      const endMonth = end.toLocaleDateString('en-US', { month: 'long' });
+
+      if (startMonth === endMonth) {
+        return `${startMonth} ${start.getDate()}–${end.getDate()}`;
+      }
+
+      return `${startMonth} ${start.getDate()} – ${endMonth} ${end.getDate()}`;
+    }
+
+    function getPaymentLabel(value) {
+      const labels = {
+        bank: 'Direct Bank Transfer (QR)',
+        direct: 'Direct Bank Transfer',
+        cod: 'Cash On Delivery'
+      };
+
+      return labels[value] || 'Cash On Delivery';
+    }
+
+    function createOrderSnapshot() {
+      const orderDate = new Date();
+      const firstName = getCheckoutValue('checkoutFirstName');
+      const lastName = getCheckoutValue('checkoutLastName');
+      const paymentInput = document.querySelector('input[name="payment"]:checked');
+
+      const items = cart.map(item => {
+        const quantity = Number(item.qty ?? item.quantity) || 1;
+
+        return {
+          ...item,
+          quantity,
+          qty: quantity
+        };
+      });
+
+      const subtotal = items.reduce((sum, item) => {
+        return sum + (Number(item.price) || 0) * item.quantity;
+      }, 0);
+
+      const shipping = 10;
+      const address = [
+        getCheckoutValue('checkoutStreet'),
+        getCheckoutValue('checkoutDistrict'),
+        getCheckoutValue('checkoutCity'),
+        getCheckoutValue('checkoutZip'),
+        getCheckoutValue('checkoutCountry')
+      ].filter(Boolean).join(', ');
+
+      return {
+        orderNumber: `FRGMNT${String(Date.now()).slice(-6)}`,
+        orderDate: orderDate.toISOString(),
+        estimatedDelivery: getEstimatedDelivery(orderDate),
+        customer: {
+          name: [firstName, lastName].filter(Boolean).join(' '),
+          phone: getCheckoutValue('checkoutPhone'),
+          email: getCheckoutValue('checkoutEmail'),
+          address
+        },
+        paymentMethod: getPaymentLabel(paymentInput ? paymentInput.value : ''),
+        items,
+        shipping,
+        discount: 0,
+        total: subtotal + shipping
+      };
+    }
+
+    function placeOrder(e) {
+      e.preventDefault();
+
+      const selectedPayment = document.querySelector('input[name="payment"]:checked');
+      const isQR = selectedPayment && selectedPayment.value === 'bank';
+
+      if (isQR) {
+
+        openQrModal();
+      } else {
+
+        confirmOrder();
+      }
+    }
+
+    function confirmOrder() {
+      closeQrModal();
+
+      const order = createOrderSnapshot();
+      localStorage.setItem('frgmnt_order', JSON.stringify(order));
+
+      const successMessage = document.getElementById('successOrderMessage');
+      successMessage.textContent =
+        `We've received your order. Your order number is #${order.orderNumber}.`;
+
+      const modal = document.getElementById('successModal');
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+
+      cart = [];
+      saveCart();
+    }
+    document.getElementById('successModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    });
+
+    renderSummary();
+
+    let qrTimer = null;
+
+    function openQrModal() {
+
+      const subtotal = getCartTotal();
+      const shipping = 10;
+      const total = subtotal + shipping;
+
+      document.getElementById('qrAmount').textContent = '$' + total;
+
+      const qrContent = encodeURIComponent(
+        'FRGMNT CLOTHING | Vietcombank 1234567890 | Amount: $' + total + ' | Ref: FRGMNT-B6CT3'
+      );
+
+      document.getElementById('qrImage').src =
+        'https://api.qrserver.com/v1/create-qr-code/?size=186x186&data=' + qrContent;
+
+      document.getElementById('qrModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+
+      startQrCountdown(10 * 60);
+    }
+
+    function closeQrModal() {
+      document.getElementById('qrModal').classList.remove('show');
+      document.body.style.overflow = '';
+      clearInterval(qrTimer);
+    }
+
+    function startQrCountdown(seconds) {
+      clearInterval(qrTimer);
+      const el = document.getElementById('qrCountdown');
+
+      function tick() {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        if (seconds <= 0) {
+          clearInterval(qrTimer);
+          el.textContent = '00:00';
+          el.style.color = '#888';
+        }
+        seconds--;
+      }
+
+      tick();
+      qrTimer = setInterval(tick, 1000);
+    }
+
+    document.getElementById('qrClose').addEventListener('click', closeQrModal);
+
+    document.getElementById('qrModal').addEventListener('click', function(e) {
+      if (e.target === this) closeQrModal();
+    });
+
+    document.getElementById('qrConfirmBtn').addEventListener('click', confirmOrder);
+
+    document.querySelectorAll('.payment-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const isBank = opt.querySelector('input[value="bank"]');
+        const btn = document.getElementById('showQrBtn');
+        if (btn) btn.style.display = isBank ? 'inline-flex' : 'none';
+      });
+    });
+  </script>
+</body>
+
+</html>
