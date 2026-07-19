@@ -333,7 +333,7 @@
 
 
   var SEARCH_PRODUCTS = [
-    { id: 'p01', name: 'FORM TANK',     sub: 'In 5 colors', price: 50,  img: ROOT + 'assets/images/shop/product/FORM_TANK.png' },
+    { id: 'p01', name: 'FORM TANK',     sub: 'In 5 colors', price: 50,  img: ROOT + 'assets/images/shop/product/FORM_TANK.png',     detailUrl: ROOT + 'pages/product.html' },
     { id: 'p02', name: 'TETHER VEST',   sub: 'In 5 colors', price: 50,  img: ROOT + 'assets/images/shop/product/TETHER_VEST.png' },
     { id: 'p03', name: 'ROUGE BLOUSE',  sub: 'In 5 colors', price: 50,  img: ROOT + 'assets/images/shop/product/ROUGE_BLOUSE.png' },
     { id: 'p04', name: 'ECHO SHIRT',    sub: 'In 5 colors', price: 100, img: ROOT + 'assets/images/shop/product/ECHO_SHIRT.png' },
@@ -378,7 +378,7 @@
             var match = SEARCH_PRODUCTS.find(function(p) {
               return p.name.toLowerCase().includes(q.toLowerCase());
             });
-            if (match) window.location.href = shopUrl + '#' + match.id;
+            if (match) window.location.href = match.detailUrl || (shopUrl + '#' + match.id);
             else window.location.href = shopUrl;
           } else {
             window.location.href = shopUrl + '#p01';
@@ -401,8 +401,8 @@
       }
 
       suggestions.innerHTML = list.map(function(p) {
-        var shopUrl = ROOT + 'pages/shop.html#' + p.id;
-        return '<a href="' + shopUrl + '" class="search-suggestion-item" onclick="document.getElementById(\'searchOverlay\').classList.remove(\'open\')">' +
+        var targetUrl = p.detailUrl || (ROOT + 'pages/shop.html#' + p.id);
+        return '<a href="' + targetUrl + '" class="search-suggestion-item" onclick="document.getElementById(\'searchOverlay\').classList.remove(\'open\')">' +
           '<img src="' + p.img + '" alt="' + p.name + '">' +
           '<div class="search-sug-info">' +
             '<span class="search-sug-name">' + p.name + '</span>' +
