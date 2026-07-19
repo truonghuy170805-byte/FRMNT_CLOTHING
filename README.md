@@ -4,13 +4,13 @@
 
 ---
 
-## 🖥️ Preview
+## Preview
 
 A fully responsive multi-page clothing brand website for **FRGMNT**, featuring a clean editorial aesthetic, smooth interactions, and a complete shopping experience.
 
 ---
 
-## 📁 Pages
+## Pages
 
 | Page | Description |
 |------|-------------|
@@ -31,7 +31,7 @@ A fully responsive multi-page clothing brand website for **FRGMNT**, featuring a
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - **HTML5** — Semantic structure
 - **CSS3** — Custom styles + Bootstrap 5.3
@@ -41,19 +41,19 @@ A fully responsive multi-page clothing brand website for **FRGMNT**, featuring a
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔍 **Live Search** — Instant product search overlay with thumbnails
-- 🛒 **Shopping Cart** — Add/remove items, quantity control, persistent via localStorage
-- ❤️ **Wishlist** — Save favourite products
-- 🔐 **Login / Logout** — Simple auth flow with user avatar in navbar
-- 📱 **Fully Responsive** — Mobile-friendly hamburger menu & layout
-- 🎨 **Filter & Sort** — Filter by category, sort by price on shop page
-- 📦 **Order Tracking** — View order status page
+- Live Search — Instant product search overlay with thumbnails
+- Shopping Cart — Add/remove items, quantity control, persistent via localStorage
+- Wishlist — Save favourite products
+- Login / Logout — Simple auth flow with user avatar in navbar
+- Fully Responsive — Mobile-friendly hamburger menu & layout
+- Filter & Sort — Filter by category, sort by price on shop page
+- Order Tracking — View order status page
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 No build tools required. Just open in a browser:
 
@@ -73,7 +73,7 @@ npx serve .
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 FRMNT_CLOTHING/
@@ -104,7 +104,7 @@ FRMNT_CLOTHING/
 
 ---
 
-## 📄 License
+## License
 
 This project is for educational & portfolio purposes only.  
 © 2025 FRGMNT Clothing. All rights reserved.
